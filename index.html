@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Krishnajith P.U. — Civil Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Archivo+Expanded:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blueprint:#152C42;
+    --blueprint-2:#1E3F5C;
+    --blueprint-line:#7FB2D9;
+    --concrete:#EEEAE2;
+    --concrete-2:#E2DDD1;
+    --steel:#26292C;
+    --steel-soft:#5B6165;
+    --safety:#E8A23A;
+    --safety-dark:#C97F1E;
+    --white:#FFFFFF;
+    --rule: rgba(38,41,44,0.15);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--concrete);
+    color:var(--steel);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Archivo Expanded',sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+  .wrap-wide{
+    max-width:1320px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap-wide{padding:0 20px;} }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--safety);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    background:rgba(238,234,226,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:1080px;
+    margin:0 auto;
+    padding:18px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  @media (max-width:640px){ .nav-inner{padding: 14px 20px;} }
+  .nav-mark{
+    font-family:'Archivo Expanded',sans-serif;
+    font-weight:800;
+    font-size:1.05rem;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .nav-mark a{ display:block; }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    font-size:0.92rem;
+    font-weight:500;
+  }
+  .nav-links a{
+    position:relative;
+    padding-bottom:3px;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:2px;
+    background:var(--safety-dark);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  @media (max-width:640px){ .nav-links{display:none;} }
+  .nav-cta{
+    border:1.5px solid var(--steel);
+    padding:8px 16px;
+    font-size:0.85rem;
+    font-weight:600;
+    border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--steel);color:var(--concrete);}
+
+  /* ---------- HERO : MOSAIC ASSEMBLY ---------- */
+  .hero{
+    position:relative;
+    height:100vh;
+    min-height:640px;
+    background:var(--blueprint);
+    color:var(--concrete);
+    overflow:hidden;
+  }
+  .mosaic{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    grid-template-rows:repeat(4, 1fr);
+    gap:3px;
+  }
+  .tile{
+    position:relative;
+    overflow:hidden;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    animation:tile-in 0.9s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay:var(--d);
+  }
+  .tile::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(21,44,66,0.15), rgba(21,44,66,0.55));
+  }
+  .tile.duo::after{ background:linear-gradient(160deg, rgba(21,44,66,0.72), rgba(232,162,58,0.28)); }
+  .t1{ --d:0.05s; --fx:-620px; --fy:-260px; grid-column:1/3; grid-row:1/3; }
+  .t2{ --d:0.16s; --fx:520px;  --fy:-340px; grid-column:3/5; grid-row:1/2; }
+  .t3{ --d:0.02s; --fx:760px;  --fy:-120px; grid-column:5/7; grid-row:1/3; }
+  .t4{ --d:0.24s; --fx:-480px; --fy:220px;  grid-column:1/2; grid-row:3/5; }
+  .t5{ --d:0.10s; --fx:-140px; --fy:460px;  grid-column:2/3; grid-row:3/5; }
+  .t6{ --d:0.30s; --fx:60px;   --fy:520px;  grid-column:3/4; grid-row:3/5; }
+  .t7{ --d:0.06s; --fx:340px;  --fy:400px;  grid-column:4/6; grid-row:4/5; }
+  .t8{ --d:0.20s; --fx:640px;  --fy:180px;  grid-column:6/7; grid-row:3/5; }
+  .t9{ --d:0.13s; --fx:280px;  --fy:-420px; grid-column:4/6; grid-row:2/4; }
+  @keyframes tile-in{
+    from{ opacity:0; transform:translate(var(--fx), var(--fy)) scale(1.15) rotate(2deg); }
+    to{ opacity:1; transform:translate(0,0) scale(1) rotate(0deg); }
+  }
+
+  .hero-scrim{
+    position:absolute; inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:radial-gradient(ellipse at center, rgba(21,44,66,0.25) 0%, rgba(21,44,66,0.72) 68%);
+    opacity:0;
+    animation:scrim-in 0.8s ease forwards;
+    animation-delay:1.35s;
+  }
+  @keyframes scrim-in{ to{ opacity:1; } }
+
+  .hero-id{
+    position:relative;
+    text-align:center;
+    opacity:0;
+    transform:translateY(14px);
+    animation:id-in 0.7s ease forwards;
+    animation-delay:1.55s;
+  }
+  @keyframes id-in{ to{ opacity:1; transform:translateY(0); } }
+
+  .hero-photo{
+    width:220px; height:220px;
+    margin:15px auto 22px;
+    border-radius:14px;
+    border:3px solid var(--safety);
+    background:var(--blueprint-2) center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 12px 32px rgba(0,0,0,0.35);
+    overflow:hidden;
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  .hero h1{
+    font-size:clamp(2rem, 5.4vw, 3.4rem);
+    line-height:1.05;
+    color:var(--white);
+  }
+  .hero .role{
+    margin-top:12px;
+    font-size:1.25rem;
+    font-weight:600;
+    color:var(--safety);
+    letter-spacing:0.01em;
+  }
+  .hero .loc{
+    margin-top:8px;
+    font-size:0.9rem;
+    color:#B9C9D6;
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .btn-primary{
+    background:var(--safety);
+    color:var(--steel);
+    font-weight:700;
+    font-size:0.95rem;
+    padding:14px 26px;
+    border-radius:2px;
+    transition:transform .18s ease, background .18s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{background:var(--safety-dark); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1.5px solid rgba(199,212,222,0.5);
+    color:var(--concrete);
+    font-weight:600;
+    font-size:0.95rem;
+    padding:13px 24px;
+    border-radius:2px;
+    transition:border-color .18s ease, background .18s ease;
+  }
+  .btn-ghost:hover{border-color:var(--concrete); background:rgba(255,255,255,0.06);}
+
+  .stat-row{
+    display:flex;
+    gap:36px;
+    margin-top:44px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .stat b{
+    display:block;
+    font-family:'Archivo Expanded',sans-serif;
+    font-size:1.7rem;
+    font-weight:800;
+    color:var(--white);
+  }
+  .stat span{
+    font-size:0.78rem;
+    color:#9FB4C4;
+  }
+  .scroll-cue{
+    position:absolute;
+    bottom:28px; left:50%;
+    transform:translateX(-50%);
+    opacity:0;
+    animation:id-in 0.6s ease forwards;
+    animation-delay:2.1s;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    font-size:0.72rem;
+    color:#9FB4C4;
+  }
+  .scroll-cue svg{ width:16px; height:16px; animation:bob 1.8s ease-in-out infinite; }
+  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} }
+
+  @media (prefers-reduced-motion: reduce){
+    .tile{ animation:none; opacity:1; }
+    .hero-scrim, .hero-id, .scroll-cue{ animation:none; opacity:1; transform:none; }
+  }
+  @media (max-width:640px){
+    .mosaic{ grid-template-columns:repeat(4,1fr); }
+    .t1{grid-column:1/3; grid-row:1/2;} .t2{grid-column:3/5; grid-row:1/2;}
+    .t3{grid-column:1/2; grid-row:2/4;} .t4{grid-column:2/3; grid-row:2/3;}
+    .t5{grid-column:3/4; grid-row:2/3;} .t6{grid-column:4/5; grid-row:2/4;}
+    .t7{grid-column:2/4; grid-row:3/5;} .t8{grid-column:1/2; grid-row:4/5;}
+    .t9{grid-column:4/5; grid-row:4/5;}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{ padding:96px 0; }
+  .section-alt{ background:var(--concrete-2); }
+  .kicker{
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--safety-dark);
+    margin-bottom:10px;
+  }
+  .section h2{
+    font-size:clamp(1.7rem, 3.6vw, 2.4rem);
+    max-width:20ch;
+  }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:52px;
+    flex-wrap:wrap;
+  }
+  .section-head p{
+    max-width:38ch;
+    color:var(--steel-soft);
+    font-size:0.98rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+    align-items:start;
+  }
+  @media (max-width:780px){ .about-grid{grid-template-columns:1fr; gap:44px;} }
+
+  .about-left{ position:sticky; top:110px; }
+  .about-rule{
+    width:52px; height:3px;
+    background:var(--safety);
+    margin:22px 0 28px;
+  }
+  .about-metrics{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    padding-top:6px;
+    border-top:1px solid var(--rule);
+    margin-top:8px;
+  }
+  .metric{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    padding-top:18px;
+  }
+  .metric b{
+    font-family:'Archivo Expanded',sans-serif;
+    font-size:1.9rem;
+    font-weight:800;
+    color:var(--blueprint-2);
+    flex-shrink:0;
+    min-width:64px;
+  }
+  .metric span{
+    font-size:0.9rem;
+    color:var(--steel-soft);
+    line-height:1.4;
+  }
+
+  .about-summary{
+    font-size:1.1rem;
+    line-height:1.75;
+    color:var(--steel);
+    padding:28px 30px;
+    background:var(--white);
+    border-left:3px solid var(--safety);
+    box-shadow:0 4px 22px rgba(21,44,66,0.06);
+  }
+  .about-copy p{ margin-top:20px; color:var(--steel-soft); font-size:1.02rem; }
+
+  .field-list{
+    border-top:1px solid var(--rule);
+    margin-top:36px;
+  }
+  .field-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:15px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:0.92rem;
+  }
+  .field-row span:first-child{ color:var(--steel-soft); flex-shrink:0; }
+  .field-row span:last-child{ font-weight:600; text-align:right; }
+
+  .cred-label{
+    font-size:0.78rem;
+    font-weight:700;
+    color:var(--steel-soft);
+    letter-spacing:0.02em;
+    margin:36px 0 14px;
+  }
+  .cert-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .cert-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.84rem;
+    font-weight:600;
+    padding:9px 14px;
+    background:var(--white);
+    border:1px solid var(--rule);
+    border-radius:2px;
+    color:var(--steel);
+  }
+  .cert-chip svg{ width:15px; height:15px; color:var(--safety-dark); flex-shrink:0; }
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{
+    position:relative;
+    border-left:2px solid var(--rule);
+    padding-left:36px;
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:48px;
+  }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-42px;
+    top:4px;
+    width:12px; height:12px;
+    background:var(--safety);
+    border:3px solid var(--concrete);
+    border-radius:50%;
+    box-shadow:0 0 0 2px var(--rule);
+  }
+  .tl-period{
+    font-size:0.82rem;
+    font-weight:600;
+    color:var(--safety-dark);
+    margin-bottom:6px;
+  }
+  .tl-role{
+    font-family:'Archivo Expanded',sans-serif;
+    font-weight:700;
+    font-size:1.18rem;
+    margin-bottom:4px;
+  }
+  .tl-org{
+    font-size:0.95rem;
+    color:var(--steel-soft);
+    margin-bottom:12px;
+  }
+  .tl-desc{
+    max-width:60ch;
+    color:var(--steel-soft);
+    font-size:0.97rem;
+  }
+  .tl-tags{
+    margin-top:14px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .tl-tags span{
+    font-size:0.78rem;
+    font-weight:500;
+    padding:5px 11px;
+    border:1px solid var(--rule);
+    border-radius:2px;
+    color:var(--steel-soft);
+  }
+
+  /* ---------- PROJECTS : SLIDING CAROUSEL ---------- */
+  .proj-carousel-wrap{ position:relative; }
+  .proj-track{
+    display:flex;
+    gap:24px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:32px;
+    padding:4px 4px 24px;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+  }
+  .proj-track::-webkit-scrollbar{ display:none; }
+  .proj-card{
+    flex:0 0 auto;
+    width:min(392px, 82vw);
+    scroll-snap-align:start;
+    background:var(--white);
+    border:1px solid var(--rule);
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .proj-card:hover{ transform:translateY(-4px); box-shadow:0 16px 32px rgba(21,44,66,0.12); }
+  .proj-img{
+    height:180px;
+    background-size:cover;
+    background-position:center;
+    position:relative;
+  }
+  .proj-img::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(21,44,66,0.05), rgba(21,44,66,0.55));
+  }
+  .proj-num{
+    position:absolute; top:14px; left:16px;
+    font-family:'Archivo Expanded',sans-serif;
+    font-weight:800;
+    font-size:0.78rem;
+    color:var(--white);
+    background:rgba(21,44,66,0.55);
+    padding:5px 10px;
+    z-index:1;
+    letter-spacing:0.03em;
+  }
+  .proj-body{ padding:24px 24px 26px; }
+  .proj-kicker{
+    font-size:0.76rem;
+    font-weight:700;
+    color:var(--safety-dark);
+    letter-spacing:0.02em;
+    margin-bottom:8px;
+  }
+  .proj-card h3{
+    font-size:1.05rem;
+    line-height:1.35;
+    margin-bottom:14px;
+  }
+  .proj-card ul{
+    list-style:none;
+    margin-bottom:16px;
+  }
+  .proj-card li{
+    font-size:0.88rem;
+    color:var(--steel-soft);
+    line-height:1.55;
+    padding-left:16px;
+    position:relative;
+    margin-bottom:8px;
+  }
+  .proj-card li::before{
+    content:"";
+    position:absolute; left:0; top:8px;
+    width:5px; height:5px;
+    background:var(--safety);
+  }
+  .proj-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+  .proj-tags span{
+    font-size:0.74rem;
+    font-weight:600;
+    padding:5px 10px;
+    background:var(--concrete-2);
+    color:var(--steel-soft);
+  }
+  .proj-controls{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  #projects .section-head{ margin-bottom:22px; }
+  .proj-arrow{
+    width:42px; height:42px;
+    border:1.5px solid var(--rule);
+    background:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .proj-arrow:hover{ background:var(--steel); border-color:var(--steel); }
+  .proj-arrow:hover svg{ color:var(--white); }
+  .proj-arrow svg{ width:18px; height:18px; color:var(--steel); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  @media (max-width:780px){ .skills-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .skills-grid{grid-template-columns:1fr;} }
+
+  .skill-card{
+    background:var(--white);
+    padding:32px 28px;
+    border-top:3px solid var(--safety);
+    box-shadow:0 4px 18px rgba(21,44,66,0.05);
+    transition:transform .3s ease, box-shadow .3s ease,
+               opacity .6s ease, transform .6s ease;
+    opacity:0;
+    transform:translateY(28px);
+  }
+  .skill-card.in-view{ opacity:1; transform:translateY(0); }
+  .skill-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(21,44,66,0.14);
+  }
+  .skill-card.in-view:hover{ transform:translateY(-6px); }
+
+  .skill-icon{
+    width:44px; height:44px;
+    border-radius:50%;
+    background:var(--concrete-2);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+    transition:background .3s ease;
+  }
+  .skill-card:hover .skill-icon{ background:var(--safety); }
+  .skill-icon svg{ width:22px; height:22px; color:var(--blueprint-2); transition:color .3s ease; }
+  .skill-card:hover .skill-icon svg{ color:var(--steel); }
+
+  .skill-card h3{
+    font-family:'Archivo Expanded',sans-serif;
+    font-size:0.95rem;
+    font-weight:700;
+    color:var(--steel);
+    letter-spacing:0.01em;
+    margin-bottom:18px;
+  }
+
+  .skill-list{ list-style:none; }
+  .skill-list li{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:11px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:0.94rem;
+    font-weight:500;
+    color:var(--steel);
+    transition:color .2s ease, padding-left .2s ease;
+  }
+  .skill-list li:first-child{ padding-top:0; }
+  .skill-list li:last-child{ border-bottom:none; }
+  .skill-list li::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--safety);
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .skill-list li:hover{ color:var(--safety-dark); padding-left:6px; }
+  .skill-list li:hover::before{ transform:scale(1.4); }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--blueprint);
+    color:var(--concrete);
+    padding:96px 0;
+  }
+  .contact-head{
+    text-align:center;
+    max-width:540px;
+    margin:0 auto 48px;
+  }
+  .contact-head h2{ color:var(--white); }
+  .contact-head p.lede{ color:#B9C9D6; margin-top:14px; font-size:1.02rem; }
+
+  .contact-panel{
+    max-width:600px;
+    margin:0 auto;
+    background:var(--white);
+    padding:36px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.25);
+  }
+  .cf-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  @media (max-width:520px){ .cf-row{grid-template-columns:1fr;} }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;
+    border:1.5px solid var(--rule);
+    padding:13px 14px;
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    color:var(--steel);
+    background:var(--concrete);
+    transition:border-color .2s ease;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--safety);
+  }
+  .contact-form textarea{ resize:vertical; margin-bottom:20px; min-height:110px; }
+  .contact-form button{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+
+  .contact-quick{
+    display:flex;
+    justify-content:center;
+    gap:48px;
+    margin-top:48px;
+    flex-wrap:wrap;
+  }
+  .cq-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    font-size:0.85rem;
+    font-weight:600;
+    color:var(--concrete);
+    transition:transform .2s ease;
+  }
+  .cq-item:hover{ transform:translateY(-3px); }
+  .cq-circle{
+    width:54px; height:54px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.06);
+    border:1.5px solid rgba(199,212,222,0.25);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .cq-item:hover .cq-circle{ background:var(--safety); border-color:var(--safety); }
+  .cq-circle svg{ width:22px; height:22px; color:var(--blueprint-line); transition:color .2s ease; }
+  .cq-item:hover .cq-circle svg{ color:var(--steel); }
+
+  footer{
+    background:var(--steel);
+    color:#9CA3A8;
+    padding:26px 0;
+    font-size:0.82rem;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+</style>
+</head>
+<body>
+<script>
+  history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
+  window.addEventListener('load', function () {
+    window.scrollTo(0, 0);
+    if (location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  });
+</script>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-mark"><a href="#top">Krishnajith P U</a></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="mosaic">
+    <div class="tile t1" style="background-image:url('https://images.unsplash.com/photo-1541976590-713941681591?w=600&q=60')"></div>
+    <div class="tile t2 duo" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=60')"></div>
+    <div class="tile t3" style="background-image:url('https://images.unsplash.com/photo-1590959651373-a3db0f38a961?w=600&q=60')"></div>
+    <div class="tile t4 duo" style="background-image:url('https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&q=60')"></div>
+    <div class="tile t5" style="background-image:url('https://images.unsplash.com/photo-1580893246395-52aead8960dc?w=600&q=60')"></div>
+    <div class="tile t6 duo" style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=60')"></div>
+    <div class="tile t7" style="background-image:url('https://images.unsplash.com/photo-1590644365607-1c5a92909f0e?w=600&q=60')"></div>
+    <div class="tile t8 duo" style="background-image:url('https://images.unsplash.com/photo-1541976590-713941681591?w=600&q=60')"></div>
+    <div class="tile t9" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=60')"></div>
+  </div>
+  <div class="hero-scrim">
+    <div class="wrap hero-id">
+      <div class="hero-photo">
+        <img src="assets\images\profile.jpeg" alt="Krishnajith P U" />
+      </div>
+      <h1>KRISHNAJITH P U</h1>
+      <div class="role">ADNOC Approved Civil Engineer — Site Supervision &amp; Construction</div>
+      <div class="loc">Thrissur, India</div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">See the work</a>
+        <a href="assets/documents/resume_krishnajith.pdf" class="btn-ghost" target="_blank" title="Resume">⤓ Resume</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>3+</b><span>Years in the field</span></div>
+        <div class="stat"><b>3</b><span>Organizations</span></div>
+        <div class="stat"><b>INDIA</b><span>Based</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+
+    <div class="about-left">
+      <div class="kicker">About</div>
+      <h2>Grounded in the field, not just the drawings.</h2>
+      <div class="about-rule"></div>
+      <div class="about-metrics">
+        <div class="metric">
+          <b>PTW</b>
+          <span>Authorized Job Performer &amp; Permit Holder under ADNOC's Permit to Work system</span>
+        </div>
+        <div class="metric">
+          <b>100%</b>
+          <span>HSE compliance maintained across all supervised sites</span>
+        </div>
+        <div class="metric">
+          <b>3</b>
+          <span>Organizations across UAE and India, June 2023 – present</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="about-summary">ADNOC-approved Civil Site Engineer with 3+ years of experience delivering oil &amp; gas civil infrastructure, substations, concrete foundations, and pipeline civil works in active operating environments. Proven track record executing site supervision under strict Permit to Work (PTW) frameworks, conducting QA/QC inspections, and driving schedule integrity for major industrial projects.</p>
+
+      <div class="about-copy">
+        <p>Expertise in managing subcontractor workflows, executing site grading and earthworks, and maintaining full HSE compliance — currently immediately available to relocate and support large-scale EPC projects.</p>
+      </div>
+
+      <div class="field-list">
+        <div class="field-row"><span>Based in</span><span>Thrissur, Kerala, India</span></div>
+        <div class="field-row"><span>Experience</span><span>3+ years</span></div>
+        <div class="field-row"><span>Focus areas</span><span>Site supervision, PTW execution, pipeline &amp; substation civil works</span></div>
+        <div class="field-row"><span>Education</span><span>B.Tech Civil Engineering — APJ Abdul Kalam Technological University, Kerala (2023)</span></div>
+      </div>
+
+      <div class="cred-label">CERTIFICATIONS &amp; TRAINING</div>
+      <div class="cert-row">
+        <span class="cert-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          ADNOC WMS &amp; Permit to Work Certified
+        </span>
+        <span class="cert-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Authorized Gas Testing &amp; H2S Awareness (Level 2)
+        </span>
+        <span class="cert-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Basic First Aid &amp; Fire Fighting Awareness
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section section-alt" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Experience</div>
+        <h2>Where the work happened.</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">Sep 2025 — Jul 2026</div>
+        <div class="tl-role">Junior Civil Engineer</div>
+        <div class="tl-org">Galfar Engineering and Contracting W.L.L., Abu Dhabi, UAE</div>
+        <p class="tl-desc">Served as authorized Job Performer and Permit Holder under ADNOC's PTW system, supervising Remote Manifold Stations, Launcher/Receiver Stations and pumping station construction — foundation concreting, equipment plinths and pipeline trenching per IFC drawings. Managed RFIs, WIRs and daily progress against baseline schedules.</p>
+        <div class="tl-tags"><span>Permit to Work</span><span>Pipeline &amp; substation works</span><span>QA/QC</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Nov 2023 — Sep 2025</div>
+        <div class="tl-role">Civil Site Engineer</div>
+        <div class="tl-org">Jaanis Construction Pvt. Ltd., Kerala, India</div>
+        <p class="tl-desc">Directed daily field operations for structural concrete, excavation, reinforcement steel, shuttering and finishing works. Tracked RFIs, WIRs and MIRs, and conducted quantity take-offs and BOQ verification to control material wastage and support project budgeting.</p>
+        <div class="tl-tags"><span>Structural execution</span><span>BOQ &amp; estimation</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Jun 2023 — Nov 2023</div>
+        <div class="tl-role">Urban Planning Engineer Trainee</div>
+        <div class="tl-org">Guruvayoor Municipality — AMRUT 2.0 National Mission</div>
+        <p class="tl-desc">Supervised municipal road works, public drainage systems and utility networks. Developed Detailed Project Reports, cost estimates and BOQs following PWD/LSGD specifications, and coordinated daily execution with contractors and municipal authorities.</p>
+        <div class="tl-tags"><span>Roads &amp; utilities</span><span>Public infrastructure</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap-wide">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Projects &amp; Research</div>
+        <h2>A cross-section of the work.</h2>
+      </div>
+    </div>
+
+    <div class="proj-controls">
+      <button class="proj-arrow" onclick="scrollProjects(-1)" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="proj-arrow" onclick="scrollProjects(1)" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="proj-carousel-wrap">
+      <div class="proj-track" id="projTrack">
+
+        <div class="proj-card">
+          <div class="proj-img" style="background-image:url('assets/images/p1.png')">
+            <span class="proj-num">01 / CAPSTONE PROJECT</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-kicker">Hydraulics &amp; Fluid Mechanics</div>
+            <h3>Flume Study on Estimation of Manning's Roughness Coefficient for Different Bed Materials</h3>
+            <ul>
+              <li>Designed and engineered an experimental laboratory flume apparatus to simulate steady open-channel flow patterns.</li>
+              <li>Investigated hydraulic friction dynamics across natural and synthetic bed materials, evaluating precise fluid resistance indices.</li>
+            </ul>
+            <div class="proj-tags"><span>Hydraulics</span><span>Experimental design</span></div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img" style="background-image:url('assets/images/p2.png')">
+            <span class="proj-num">02 / ACADEMIC SEMINAR</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-kicker">Geotechnical Engineering</div>
+            <h3>Wicked Geotextiles in Complex Soil Stabilization</h3>
+            <ul>
+              <li>Conducted a comprehensive literature review on high-performance synthetic materials combining capillary action with vacuum-assisted drainage physics.</li>
+              <li>Analyzed macro-structural performance of wicked geotextiles in facilitating rapid pore water pressure (PWP) dissipation.</li>
+            </ul>
+            <div class="proj-tags"><span>Geotechnical</span><span>Soil stabilization</span></div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-img" style="background-image:url('assets/images/p3.png')">
+            <span class="proj-num">03 / REGIONAL SURVEY</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-kicker">GIS &amp; Infrastructure Mapping</div>
+            <h3>Road Network Mapping &amp; Local Infrastructure Asset Management</h3>
+            <ul>
+              <li>Appointed Group Lead for a 6-member team to survey, index and digitally draft municipal road infrastructure networks.</li>
+              <li>Delivered spatial data assets to the Local Self Government Department, Thrissur, for budget planning and urban development forecasting.</li>
+            </ul>
+            <div class="proj-tags"><span>Team leadership</span><span>GIS mapping</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function scrollProjects(dir){
+    var track = document.getElementById('projTrack');
+    var card = track.querySelector('.proj-card');
+    var gap = 24;
+    var amount = (card.offsetWidth + gap) * dir;
+    track.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+
+  function updateProjControls(){
+    var track = document.getElementById('projTrack');
+    var controls = document.querySelector('.proj-controls');
+    if(!track || !controls) return;
+    var hasOverflow = track.scrollWidth > track.clientWidth + 4;
+    controls.style.display = hasOverflow ? 'flex' : 'none';
+  }
+  window.addEventListener('load', updateProjControls);
+  window.addEventListener('resize', updateProjControls);
+</script>
+
+<section class="section section-alt" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Skills</div>
+        <h2>Tools and areas of expertise.</h2>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M4 20h16"/><path d="M7 12a5 5 0 0 1 10 0"/></svg>
+        </div>
+        <h3>SITE &amp; SUPERVISION</h3>
+        <ul class="skill-list">
+          <li>Site supervision</li>
+          <li>Permit to Work (PTW)</li>
+          <li>Earthworks &amp; concreting</li>
+          <li>Structural foundations</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>SOFTWARE &amp; DESIGN</h3>
+        <ul class="skill-list">
+          <li>AutoCAD</li>
+          <li>Revit</li>
+          <li>MS Excel, Word, PowerPoint</li>
+        </ul>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V9l8-6 8 6v12M9 21v-8h6v8"/></svg>
+        </div>
+        <h3>PROJECT TYPES</h3>
+        <ul class="skill-list">
+          <li>Substation &amp; pipeline works</li>
+          <li>BOQ &amp; quantity surveying</li>
+          <li>IFC drawing verification</li>
+          <li>Public infrastructure</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    var cards = document.querySelectorAll('.skill-card');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if(entry.isIntersecting){
+          var idx = Array.prototype.indexOf.call(cards, entry.target);
+          setTimeout(function(){ entry.target.classList.add('in-view'); }, idx * 120);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(function(c){ io.observe(c); });
+  })();
+</script>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-head">
+      <div class="kicker" style="color:var(--safety);">Contact</div>
+      <h2>Let's talk about the next site.</h2>
+      <p class="lede">Open to civil engineering, site supervision and construction management roles.</p>
+    </div>
+
+    <div class="contact-quick">
+      <a href="mailto:erkrishnajith007@gmail.com" class="cq-item">
+        <span class="cq-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        </span>
+        Email
+      </a>
+      <a href="tel:+919746224068" class="cq-item">
+        <span class="cq-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2.1z"/></svg>
+        </span>
+        Call
+      </a>
+      <a href="https://linkedin.com/in/krishnajith300" target="_blank" rel="noopener" class="cq-item">
+        <span class="cq-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 13v4"/></svg>
+        </span>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="width:100%; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+    <span>Krishnajith P.U. — Civil Engineer</span>
+    <span>Thrissur, Kerala, India</span>
+  </div>
+</footer>
+
+</body>
+</html>
