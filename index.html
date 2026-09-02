@@ -120,8 +120,8 @@
   /* ---------- HERO : MOSAIC ASSEMBLY ---------- */
   .hero{
     position:relative;
-    height:100vh;
-    min-height:640px;
+    min-height:100vh;
+    min-height:100svh;
     background:var(--blueprint);
     color:var(--concrete);
     overflow:hidden;
@@ -168,6 +168,8 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    padding-top:76px;
+    padding-bottom:24px;
     background:radial-gradient(ellipse at center, rgba(21,44,66,0.25) 0%, rgba(21,44,66,0.72) 68%);
     opacity:0;
     animation:scrim-in 0.8s ease forwards;
@@ -327,6 +329,7 @@
   @media (max-width:780px){ .about-grid{grid-template-columns:1fr; gap:44px;} }
 
   .about-left{ position:sticky; top:110px; }
+  @media (max-width:780px){ .about-left{ position:static; } }
   .about-rule{
     width:52px; height:3px;
     background:var(--safety);
@@ -659,44 +662,6 @@
   .contact-head h2{ color:var(--white); }
   .contact-head p.lede{ color:#B9C9D6; margin-top:14px; font-size:1.02rem; }
 
-  .contact-panel{
-    max-width:600px;
-    margin:0 auto;
-    background:var(--white);
-    padding:36px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.25);
-  }
-  .cf-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin-bottom:16px;
-  }
-  @media (max-width:520px){ .cf-row{grid-template-columns:1fr;} }
-  .contact-form input,
-  .contact-form textarea{
-    width:100%;
-    border:1.5px solid var(--rule);
-    padding:13px 14px;
-    font-family:'Inter',sans-serif;
-    font-size:0.95rem;
-    color:var(--steel);
-    background:var(--concrete);
-    transition:border-color .2s ease;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus{
-    outline:none;
-    border-color:var(--safety);
-  }
-  .contact-form textarea{ resize:vertical; margin-bottom:20px; min-height:110px; }
-  .contact-form button{
-    width:100%;
-    border:none;
-    cursor:pointer;
-    font-family:'Inter',sans-serif;
-  }
-
   .contact-quick{
     display:flex;
     justify-content:center;
@@ -780,7 +745,7 @@
   <div class="hero-scrim">
     <div class="wrap hero-id">
       <div class="hero-photo">
-        <img src="assets\images\profile.jpeg" alt="Krishnajith P U" />
+        <img src="assets/images/profile.jpeg" alt="Krishnajith P U" />
       </div>
       <h1>KRISHNAJITH P U</h1>
       <div class="role">ADNOC Approved Civil Engineer — Site Supervision &amp; Construction</div>
@@ -1037,7 +1002,7 @@
   (function(){
     var cards = document.querySelectorAll('.skill-card');
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry, i){
+      entries.forEach(function(entry){
         if(entry.isIntersecting){
           var idx = Array.prototype.indexOf.call(cards, entry.target);
           setTimeout(function(){ entry.target.classList.add('in-view'); }, idx * 120);
